@@ -51,28 +51,3 @@ router.put('/', upload.single('photo'), async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
-
-// Get dashboard stats
-router.get('/dashboard', async (req, res) => {
-  try {
-    const Order = require('../models/Order');
-    const Product = require('../models/Product');
-    
-    const totalOrders = await Order.countDocuments();
-    const totalProducts = await Product.countDocuments();
-    const pendingOrders = await Order.countDocuments({ status: 'pending' });
-    const recentOrders = await Order.find()
-      .populate('products.product')
-      .sort({ orderDate: -1 })
-      .limit(5);
-    
-    res.json({
-      stats: { totalOrders, totalProducts, pendingOrders },
-      recentOrders
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-module.exports = router;
