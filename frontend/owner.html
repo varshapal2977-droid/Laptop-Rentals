@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Profile - Roop Singh Pal | Brits Rentals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span><i class="fas fa-phone"></i> +91 8800379050</span>
+                <span><i class="fas fa-envelope"></i> roopsinghpal54@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.imgur.com/placeholder-logo.png" alt="Brits Logo">
+                <div class="logo-text">
+                    <h1>Brits</h1>
+                    <span>Your Technology Partner</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="owner.html" class="active">Owner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Owner Profile Section -->
+    <section class="owner-profile">
+        <div class="container">
+            <div class="profile-header">
+                <div class="owner-photo">
+                    <div class="photo-placeholder" id="ownerPhoto">
+                        <i class="fas fa-user"></i>
+                        <span>Add Photo</span>
+                        <input type="file" id="photoUpload" accept="image/*" onchange="uploadPhoto(this)">
+                    </div>
+                </div>
+                <div class="owner-info">
+                    <h1>Roop Singh Pal</h1>
+                    <p class="designation">Founder & CEO</p>
+                    <p class="company">Brits - Your Technology Partner</p>
+                    <div class="owner-stats">
+                        <div class="stat">
+                            <span class="number">10+</span>
+                            <span class="label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">5000+</span>
+                            <span class="label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">50+</span>
+                            <span class="label">Cities Served</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-left">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user-circle"></i> Personal Information</h3>
+                        <ul>
+                            <li><strong>Full Name:</strong> Roop Singh Pal</li>
+                            <li><strong>Role:</strong> Founder & CEO</li>
+                            <li><strong>Company:</strong> Brits Solutions</li>
+                            <li><strong>Experience:</strong> 10+ Years in IT Rentals</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-address-card"></i> Contact Details</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span>Phone</span>
+                                    <strong>+91 8800379050</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span>Email</span>
+                                    <strong>roopsinghpal54@gmail.com</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>Address</span>
+                                    <strong>205, 2nd Floor, Aapka Bazar, Gurudwara Road, Gurgaon 122001, Haryana</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-id-card"></i>
+                                <div>
+                                    <span>GST Number</span>
+                                    <strong>06AACCG0527D1Z8</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="profile-right">
+                    <div class="info-card">
+                        <h3><i class="fas fa-building"></i> About Brits Solutions</h3>
+                        <p>Founded in 2017, Brits Solutions has grown to become one of the most trusted IT equipment rental service providers in Delhi NCR. Under the leadership of Roop Singh Pal, we have served over 5000+ clients ranging from startups to Fortune 500 companies.</p>
+                        <p>Our mission is to make technology accessible to everyone through affordable rental solutions. We believe in building long-term relationships with our clients by providing quality products and exceptional service.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-award"></i>
+                                <span>Best IT Solutions Service 2023</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5 Customer Rating</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-handshake"></i>
+                                <span>Trusted by 500+ Corporates</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card business-hours">
+                        <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                        <table>
+                            <tr>
+                                <td>Monday - Saturday</td>
+                                <td>9:00 AM - 8:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Contact Form -->
+            <div class="owner-contact-form">
+                <h3>Direct Message to Owner</h3>
+                <form id="ownerContactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="copyright">
+                <p>Copyright © 2015 Brits Solutions | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function uploadPhoto(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const placeholder = document.getElementById('ownerPhoto');
+                    placeholder.innerHTML = `<img src="${e.target.result}" alt="Roop Singh Pal">`;
+                    placeholder.classList.add('has-photo');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
