@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brits Solutions — Your Technology Partner | Laptop & IT Hardware Rentals, Gurgaon</title>
+<meta name="description" content="Brits Solutions — rent laptops, desktops, and IT hardware in Gurgaon. Flexible terms, on-site support, your technology partner.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy-950:#070f1f;
+  --navy-900:#0b1b33;
+  --navy-800:#11244a;
+  --navy-700:#172e5e;
+  --blue-500:#2e5fe8;
+  --blue-400:#5b80ef;
+  --red-500:#e63946;
+  --red-400:#ef5b66;
+  --green-500:#1fa67a;
+  --ink:#0b1220;
+  --paper:#f7f9fc;
+  --paper-dim:#eef1f8;
+  --slate-500:#5b6478;
+  --slate-300:#aab2c5;
+  --line:rgba(255,255,255,0.09);
+  --line-dark:rgba(11,18,32,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+h1,h2,h3,h4,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.01em;}
+.mono{font-family:'JetBrains Mono',monospace;}
+
+/* ===== utility ===== */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue-500);
+  display:flex;align-items:center;gap:10px;
+  font-weight:500;
+}
+.eyebrow::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--red-500);
+  box-shadow:0 0 0 3px rgba(230,57,70,0.18);
+}
+.section-pad{padding:120px 0;}
+@media(max-width:768px){.section-pad{padding:72px 0;}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 28px;border-radius:8px;
+  font-weight:600;font-size:15px;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--red-500);color:#fff;
+  box-shadow:0 8px 24px -8px rgba(230,57,70,0.55);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(230,57,70,0.65);}
+.btn-ghost{
+  background:transparent;border:1.5px solid rgba(255,255,255,0.25);color:#fff;
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.06);}
+.btn-dark{
+  background:var(--navy-900);color:#fff;
+}
+.btn-dark:hover{transform:translateY(-2px);}
+
+/* ===== power ring signature element ===== */
+.power-ring{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+}
+.power-ring svg{display:block;}
+.power-ring .ring-track{stroke:rgba(255,255,255,0.15);}
+.power-ring .ring-prog{stroke:var(--red-500);stroke-linecap:round;transform-origin:center;transform:rotate(-90deg);}
+
+/* ===== NAV ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(7,15,31,0.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s ease;
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;
+}
+.logo-mark{display:flex;align-items:center;gap:11px;}
+.logo-mark .logo-img{height:38px;width:auto;background:#fff;padding:4px 8px;border-radius:6px;}
+.logo-mark .word{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:#fff;
+  letter-spacing:-0.01em;
+}
+.logo-mark .word span{color:var(--red-400);}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{
+  color:var(--slate-300);font-size:14.5px;font-weight:500;
+  position:relative;padding:4px 0;transition:color .2s ease;
+}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:#fff;}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--red-500);
+}
+.nav-cta{display:flex;align-items:center;gap:14px;}
+.nav-call{
+  color:#fff;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;
+}
+.burger{display:none;flex-direction:column;gap:5px;}
+.burger span{width:24px;height:2px;background:#fff;}
+
+.mobile-menu{
+  display:none;position:fixed;top:67px;left:0;right:0;bottom:0;
+  background:var(--navy-950);z-index:999;padding:32px;
+}
+.mobile-menu.open{display:flex;flex-direction:column;gap:24px;}
+.mobile-menu a{color:#fff;font-size:20px;font-family:'Space Grotesk';font-weight:600;}
+
+@media(max-width:920px){
+  .nav-links,.nav-call{display:none;}
+  .burger{display:flex;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  background:radial-gradient(ellipse 900px 600px at 78% -10%, rgba(46,95,232,0.35), transparent 60%),
+             radial-gradient(ellipse 700px 500px at 10% 110%, rgba(230,57,70,0.18), transparent 60%),
+             linear-gradient(180deg,var(--navy-950) 0%, var(--navy-900) 100%);
+  color:#fff;
+  padding:168px 0 100px;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(180deg, black, transparent 75%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;
+}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:56px;}}
+
+.hero h1{
+  font-size:clamp(40px,5.4vw,68px);
+  line-height:1.04;
+  font-weight:700;
+  margin:22px 0 24px;
+}
+.hero h1 .accent{color:var(--red-400);}
+.hero h1 .underline-blue{
+  position:relative;
+  background:linear-gradient(transparent 62%, rgba(46,95,232,0.45) 62%);
+}
+.hero p.lede{
+  font-size:18px;line-height:1.65;color:var(--slate-300);max-width:520px;margin-bottom:38px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:54px;}
+
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:28px;
+}
+.hero-stat .num{
+  font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;color:#fff;
+}
+.hero-stat .num .unit{font-size:14px;color:var(--blue-400);margin-left:2px;}
+.hero-stat .lbl{font-size:12.5px;color:var(--slate-300);margin-top:4px;letter-spacing:.02em;}
+
+/* hero visual: device dock */
+.hero-visual{position:relative;}
+.dock-card{
+  background:linear-gradient(160deg, var(--navy-800), var(--navy-900));
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:30px;
+  position:relative;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);
+}
+.dock-card .dock-header{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+}
+.dock-card .dock-title{font-family:'JetBrains Mono';font-size:12px;color:var(--slate-300);letter-spacing:.08em;text-transform:uppercase;}
+.status-pill{
+  display:flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono';font-size:11px;color:var(--green-500);
+  background:rgba(31,166,122,0.12);padding:5px 10px;border-radius:20px;
+  border:1px solid rgba(31,166,122,0.3);
+}
+.status-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-500);box-shadow:0 0 0 0 rgba(31,166,122,.6);animation:pulse 1.8s infinite;}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(31,166,122,.5);}
+  70%{box-shadow:0 0 0 7px rgba(31,166,122,0);}
+  100%{box-shadow:0 0 0 0 rgba(31,166,122,0);}
+}
+.device-rows{display:flex;flex-direction:column;gap:10px;}
+.device-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.035);
+  border:1px solid var(--line);
+  padding:13px 16px;border-radius:11px;
+  font-size:13.5px;
+}
+.device-row .d-name{display:flex;align-items:center;gap:10px;color:#fff;font-weight:500;}
+.device-row .d-icon{
+  width:30px;height:30px;border-radius:8px;
+  background:rgba(46,95,232,0.18);
+  display:flex;align-items:center;justify-content:center;color:var(--blue-400);
+  flex-shrink:0;
+}
+.device-row .d-price{font-family:'JetBrains Mono';color:var(--slate-300);font-size:12.5px;}
+.dock-card .dock-footer{
+  margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.dock-card .dock-footer .label{font-size:12px;color:var(--slate-300);}
+.dock-card .dock-footer .value{font-family:'JetBrains Mono';font-size:18px;color:var(--red-400);font-weight:700;}
+
+.float-badge{
+  position:absolute;background:#fff;color:var(--ink);
+  border-radius:14px;padding:14px 16px;box-shadow:0 20px 40px -12px rgba(0,0,0,0.35);
+  display:flex;align-items:center;gap:11px;font-size:13px;font-weight:600;
+}
+.float-badge.b1{top:-22px;right:-14px;animation:float1 5s ease-in-out infinite;}
+.float-badge.b2{bottom:-18px;left:-20px;animation:float2 6s ease-in-out infinite;}
+@media(max-width:980px){.float-badge{display:none;}}
+@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes float2{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+/* ===== marquee strip ===== */
+.marquee-strip{
+  background:var(--navy-950);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;padding:16px 0;
+}
+.marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scroll-x 26s linear infinite;width:max-content;}
+.marquee-track span{
+  font-family:'JetBrains Mono';font-size:13px;color:var(--slate-300);
+  display:flex;align-items:center;gap:14px;
+}
+.marquee-track span::after{content:'◆';color:var(--red-500);font-size:9px;margin-left:60px;}
+@keyframes scroll-x{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ===== SECTION HEADERS ===== */
+.sec-head{max-width:640px;margin-bottom:56px;}
+.sec-head h2{font-size:clamp(30px,3.6vw,44px);font-weight:700;margin-top:16px;line-height:1.1;color:var(--ink);}
+.sec-head p{font-size:16.5px;color:var(--slate-500);margin-top:16px;line-height:1.65;}
+.sec-head.on-dark h2{color:#fff;}
+.sec-head.on-dark p{color:var(--slate-300);}
+
+/* ===== CATEGORY PILLS / FILTER ===== */
+.cat-bar{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px;
+}
+.cat-pill{
+  padding:10px 20px;border-radius:30px;font-size:14px;font-weight:600;
+  border:1.5px solid var(--line-dark);color:var(--slate-500);
+  transition:all .2s ease;
+}
+.cat-pill.is-active,.cat-pill:hover{
+  background:var(--navy-900);color:#fff;border-color:var(--navy-900);
+}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+@media(max-width:980px){.product-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.product-grid{grid-template-columns:1fr;}}
+
+.product-card{
+  background:#fff;border:1px solid var(--line-dark);border-radius:16px;
+  overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;
+  display:flex;flex-direction:column;
+}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -18px rgba(11,18,32,0.18);}
+.product-media{
+  height:190px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,var(--paper-dim),#fff);position:relative;
+  border-bottom:1px solid var(--line-dark);
+}
+.product-media .glyph{color:var(--navy-700);opacity:.9;}
+.tag-row{position:absolute;top:14px;left:14px;display:flex;gap:6px;}
+.tag{
+  font-family:'JetBrains Mono';font-size:10.5px;font-weight:600;letter-spacing:.04em;
+  padding:5px 9px;border-radius:6px;text-transform:uppercase;
+}
+.tag.popular{background:var(--red-500);color:#fff;}
+.tag.new{background:var(--green-500);color:#fff;}
+.tag.avail{background:rgba(31,166,122,0.12);color:var(--green-500);border:1px solid rgba(31,166,122,.3);}
+.product-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.product-body h4{font-size:17px;font-weight:700;color:var(--ink);}
+.product-body .specs{font-size:12.5px;color:var(--slate-500);line-height:1.6;}
+.product-body .price-row{
+  margin-top:auto;padding-top:14px;border-top:1px solid var(--line-dark);
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.price-row .price{font-family:'JetBrains Mono';font-size:20px;font-weight:700;color:var(--ink);}
+.price-row .price .per{font-size:11px;color:var(--slate-500);font-weight:500;}
+.price-row a{
+  font-size:12.5px;font-weight:700;color:var(--blue-500);display:flex;align-items:center;gap:5px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.flow-wrap{
+  background:var(--navy-950);color:#fff;position:relative;
+}
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:20px;}
+@media(max-width:900px){.flow-grid{grid-template-columns:repeat(2,1fr);gap:36px;}}
+@media(max-width:560px){.flow-grid{grid-template-columns:1fr;}}
+.flow-step{
+  padding:0 28px 0 0;position:relative;
+}
+.flow-step:not(:last-child)::after{
+  content:'';position:absolute;top:26px;right:0;width:24px;height:1px;background:var(--line);
+}
+@media(max-width:900px){.flow-step:not(:last-child)::after{display:none;}}
+.flow-num{
+  font-family:'JetBrains Mono';font-size:13px;color:var(--red-400);margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;
+}
+.flow-num .ln{width:30px;height:1px;background:var(--red-500);}
+.flow-step h4{font-size:18px;margin-bottom:10px;font-weight:600;}
+.flow-step p{font-size:14px;color:var(--slate-300);line-height:1.6;}
+
+/* ===== WHY US ===== */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:18px;overflow:hidden;}
+@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+.why-cell{background:#fff;padding:34px 28px;}
+.why-cell .ico{
+  width:46px;height:46px;border-radius:12px;background:var(--navy-900);
+  display:flex;align-items:center;justify-content:center;color:var(--red-400);margin-bottom:18px;
+}
+.why-cell h4{font-size:16.5px;margin-bottom:9px;font-weight:700;}
+.why-cell p{font-size:13.5px;color:var(--slate-500);line-height:1.6;}
+
+/* ===== FOUNDER ===== */
+.founder-section{
+  background:linear-gradient(180deg,#fff,var(--paper-dim));
+}
+.founder-grid{
+  display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:center;
+}
+@media(max-width:900px){.founder-grid{grid-template-columns:1fr;gap:40px;}}
+.founder-photo-frame{
+  position:relative;border-radius:20px;overflow:hidden;
+  aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--navy-900),var(--navy-700));
+  display:flex;align-items:center;justify-content:center;
+}
+.founder-photo-frame img{width:100%;height:100%;object-fit:cover;}
+.founder-photo-frame .placeholder{
+  color:var(--slate-300);text-align:center;padding:30px;font-size:13px;line-height:1.7;
+}
+.founder-photo-frame .placeholder .pico{margin-bottom:14px;color:var(--red-400);}
+.founder-tagband{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(7,15,31,0.82);backdrop-filter:blur(6px);
+  padding:18px 22px;color:#fff;
+}
+.founder-tagband .name{font-family:'Space Grotesk';font-weight:700;font-size:18px;}
+.founder-tagband .role{font-size:12.5px;color:var(--slate-300);font-family:'JetBrains Mono';margin-top:2px;}
+
+.founder-quote{
+  font-family:'Space Grotesk';font-size:clamp(21px,2.4vw,28px);
+  line-height:1.45;font-weight:500;color:var(--ink);
+  position:relative;padding-left:28px;border-left:3px solid var(--red-500);margin-bottom:28px;
+}
+.founder-bio p{font-size:15.5px;color:var(--slate-500);line-height:1.75;margin-bottom:16px;}
+.founder-stats{display:flex;gap:36px;margin-top:30px;flex-wrap:wrap;}
+.founder-stats .fs-num{font-family:'JetBrains Mono';font-size:24px;font-weight:700;color:var(--navy-900);}
+.founder-stats .fs-lbl{font-size:12px;color:var(--slate-500);margin-top:3px;}
+
+/* ===== TESTIMONIALS ===== */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:900px){.test-grid{grid-template-columns:1fr;}}
+.test-card{
+  background:#fff;border:1px solid var(--line-dark);border-radius:16px;padding:28px;
+}
+.test-card .stars{color:var(--red-500);font-size:14px;margin-bottom:16px;letter-spacing:2px;}
+.test-card p{font-size:14.5px;color:var(--slate-500);line-height:1.7;margin-bottom:20px;}
+.test-card .who{display:flex;align-items:center;gap:12px;}
+.test-card .avatar{
+  width:38px;height:38px;border-radius:50%;background:var(--navy-900);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-family:'Space Grotesk';
+}
+.test-card .who .nm{font-size:13.5px;font-weight:700;color:var(--ink);}
+.test-card .who .co{font-size:12px;color:var(--slate-500);}
+
+/* ===== CTA BAND ===== */
+.cta-band{
+  background:linear-gradient(120deg,var(--navy-950),var(--navy-800) 60%, var(--blue-500) 160%);
+  border-radius:24px;padding:64px 56px;color:#fff;
+  display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.cta-band::after{
+  content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.cta-band h3{font-size:clamp(24px,3vw,32px);max-width:480px;line-height:1.25;}
+.cta-band .sub{color:var(--slate-300);margin-top:10px;font-size:14.5px;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy-950);color:var(--slate-300);padding:80px 0 28px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:48px;margin-bottom:56px;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+.footer-grid h5{
+  color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px;
+  font-family:'JetBrains Mono';font-weight:500;
+}
+.footer-grid ul li{margin-bottom:11px;font-size:14px;}
+.footer-grid ul li a:hover{color:#fff;}
+.footer-grid .addr{font-size:14px;line-height:1.8;}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  font-size:12.5px;
+}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--slate-300);
+  transition:all .2s ease;
+}
+.social-row a:hover{background:var(--red-500);color:#fff;border-color:var(--red-500);}
+
+/* ===== contact page bits ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.info-row{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line-dark);}
+.info-row .ic{
+  width:42px;height:42px;border-radius:10px;background:var(--navy-900);color:var(--red-400);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.info-row .lbl{font-size:12px;color:var(--slate-500);text-transform:uppercase;letter-spacing:.06em;font-family:'JetBrains Mono';}
+.info-row .val{font-size:15.5px;font-weight:600;color:var(--ink);margin-top:3px;}
+.map-frame{border-radius:16px;overflow:hidden;border:1px solid var(--line-dark);margin-top:24px;height:260px;}
+.form-card{
+  background:#fff;border:1px solid var(--line-dark);border-radius:18px;padding:34px;
+}
+.field{margin-bottom:18px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:7px;display:block;}
+.field input,.field select,.field textarea{
+  width:100%;padding:13px 14px;border-radius:9px;border:1.5px solid var(--line-dark);
+  font-family:'Inter';font-size:14.5px;background:var(--paper-dim);transition:border .2s ease;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue-500);background:#fff;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:560px){.field-row{grid-template-columns:1fr;}}
+.submit-btn{
+  width:100%;padding:15px;background:var(--red-500);color:#fff;font-weight:700;border-radius:9px;font-size:15px;
+  transition:transform .2s ease;
+}
+.submit-btn:hover{transform:translateY(-2px);}
+.form-success{
+  display:none;background:rgba(31,166,122,0.1);border:1px solid rgba(31,166,122,0.3);
+  color:var(--green-500);padding:14px 16px;border-radius:9px;font-size:13.5px;font-weight:600;margin-top:14px;
+  align-items:center;gap:8px;
+}
+.form-success.show{display:flex;}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:900;
+  width:58px;height:58px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,0.6);
+  transition:transform .25s ease;
+}
+.wa-float:hover{transform:scale(1.08);}
+
+/* page reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+.page-section{display:none;}
+.page-section.active{display:block;}
+
+.bullet-check{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}
+.bullet-check .bc-ico{color:var(--green-500);flex-shrink:0;margin-top:2px;}
+.bullet-check span{font-size:14.5px;color:var(--slate-500);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo-mark" data-nav="home">
+      <img class="logo-img" src="assets/logo.png" alt="Brits Solutions logo">
+    </a>
+    <nav class="nav-links">
+      <a href="#" data-nav="home" class="active">Home</a>
+      <a href="#" data-nav="inventory">Inventory</a>
+      <a href="#" data-nav="how">How It Works</a>
+      <a href="#" data-nav="founder">Meet the Founder</a>
+      <a href="#" data-nav="about">About</a>
+      <a href="#" data-nav="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+918800379050" class="nav-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        88003 79050
+      </a>
+      <a href="#" data-nav="contact" class="btn btn-primary" style="padding:12px 22px;font-size:14px;">Get a Quote</a>
+    </div>
+    <button class="burger" onclick="document.getElementById('mmenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#" data-nav="home">Home</a>
+    <a href="#" data-nav="inventory">Inventory</a>
+    <a href="#" data-nav="how">How It Works</a>
+    <a href="#" data-nav="founder">Meet the Founder</a>
+    <a href="#" data-nav="about">About</a>
+    <a href="#" data-nav="contact">Contact</a>
+    <a href="tel:+918800379050" style="color:var(--red-400);">Call: 88003 79050</a>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<main id="page-home" class="page-section active">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">GURGAON · ON-DEMAND IT HARDWARE</div>
+        <h1 class="reveal in">Hardware on your terms.<br>Technology that keeps<br>
+your work moving..<br><span class="accent">Power on,</span> instantly.</h1>
+        <p class="lede">Brits Solutions rents laptops, desktops, monitors, keyboards, mice and full IT setups to businesses, studios and individuals across Gurgaon — delivered, configured, and supported.</p>
+        <div class="hero-actions">
+          <a href="#" data-nav="inventory" class="btn btn-primary">
+            Browse Inventory
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" data-nav="contact" class="btn btn-ghost">Talk to Us</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">650<span class="unit">+</span></div><div class="lbl">Devices in fleet</div></div>
+          <div class="hero-stat"><div class="num">24<span class="unit">hr</span></div><div class="lbl">Delivery in Gurgaon</div></div>
+          <div class="hero-stat"><div class="num">98<span class="unit">%</span></div><div class="lbl">Uptime support SLA</div></div>
+          <div class="hero-stat"><div class="num">9<span class="unit">+ yrs</span></div><div class="lbl">Serving NCR businesses</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="dock-card">
+          <div class="dock-header">
+            <div class="dock-title">// Live Fleet Snapshot</div>
+            <div class="status-pill">Available now</div>
+          </div>
+          <div class="device-rows">
+            <div class="device-row">
+              <div class="d-name"><div class="d-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
+              </div>Dell Latitude 5440 — i5/16GB</div>
+              <div class="d-price">₹1,499/day</div>
+            </div>
+            <div class="device-row">
+              <div class="d-name"><div class="d-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
+              </div>HP EliteBook 840 — i7/16GB</div>
+              <div class="d-price">₹1,899/day</div>
+            </div>
+            <div class="device-row">
+              <div class="d-name"><div class="d-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></svg>
+              </div>Mini PC Tower — Ryzen 5</div>
+              <div class="d-price">₹999/day</div>
+            </div>
+            <div class="device-row">
+              <div class="d-name"><div class="d-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="9" rx="1.5"/><path d="M19 9l2 2-2 2"/></svg>
+              </div>Keyboard + Mouse Combo</div>
+              <div class="d-price">₹79/day</div>
+            </div>
+          </div>
+          <div class="dock-footer">
+            <div class="label">Avg. setup for a 10-seat office</div>
+            <div class="value">₹16,990<span style="font-size:11px;color:var(--slate-300);">/mo</span></div>
+          </div>
+        </div>
+        <div class="float-badge b1">
+          <div class="power-ring">
+            <svg width="34" height="34" viewBox="0 0 36 36">
+              <circle class="ring-track" cx="18" cy="18" r="15" fill="none" stroke-width="3"/>
+              <circle class="ring-prog" cx="18" cy="18" r="15" fill="none" stroke-width="3" stroke-dasharray="94.2" stroke-dashoffset="9"/>
+            </svg>
+          </div>
+          92% fleet deployed
+        </div>
+        <div class="float-badge b2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1fa67a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Same-day setup
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>LAPTOPS</span><span>DESKTOP PCs</span><span>MONITORS</span><span>KEYBOARDS &amp; MICE</span><span>DOCKING STATIONS</span><span>PRINTERS</span><span>SERVERS &amp; WORKSTATIONS</span><span>NETWORKING GEAR</span>
+      <span>LAPTOPS</span><span>DESKTOP PCs</span><span>MONITORS</span><span>KEYBOARDS &amp; MICE</span><span>DOCKING STATIONS</span><span>PRINTERS</span><span>SERVERS &amp; WORKSTATIONS</span><span>NETWORKING GEAR</span>
+    </div>
+  </div>
+
+  <!-- FEATURED INVENTORY PREVIEW -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">THE FLEET</div>
+        <h2>Every machine your team needs, none of the ownership.</h2>
+        <p>From a single freelancer laptop to a 50-seat event setup — rent exactly what you need, exactly as long as you need it.</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-media">
+            <div class="tag-row"><span class="tag popular">Most rented</span></div>
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 8h6M9 11h4"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Business Laptops</h4>
+            <div class="specs">Dell Latitude · HP EliteBook · Lenovo ThinkPad — i5/i7, 8–32GB RAM, SSD</div>
+            <div class="price-row">
+              <div class="price">₹999<span class="per">/day onward</span></div>
+              <a href="#" data-nav="inventory">View specs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-media">
+            <div class="tag-row"><span class="tag new">New stock</span></div>
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Desktop PCs &amp; Workstations</h4>
+            <div class="specs">i5–i9, Ryzen 5/7, dedicated GPU options for design &amp; render loads</div>
+            <div class="price-row">
+              <div class="price">₹849<span class="per">/day onward</span></div>
+              <a href="#" data-nav="inventory">View specs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-media">
+            <div class="tag-row"><span class="tag avail">In stock</span></div>
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M3 19h18"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Monitors</h4>
+            <div class="specs">21.5"–27" Full HD &amp; QHD, single or dual-monitor stand setups</div>
+            <div class="price-row">
+              <div class="price">₹149<span class="per">/day onward</span></div>
+              <a href="#" data-nav="inventory">View specs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-media">
+            <div class="tag-row"><span class="tag avail">In stock</span></div>
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="6" width="16" height="10" rx="1.5"/><circle cx="20" cy="11" r="2"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Keyboards &amp; Mice</h4>
+            <div class="specs">Wired/wireless combos, mechanical options, ergonomic sets</div>
+            <div class="price-row">
+              <div class="price">₹39<span class="per">/day onward</span></div>
+              <a href="#" data-nav="inventory">View specs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-media">
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9V4h12v5M6 18h12M6 14h12v8H6z"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Printers &amp; Scanners</h4>
+            <div class="specs">Laser &amp; inkjet, MFD options, ink/toner supply included</div>
+            <div class="price-row">
+              <div class="price">₹399<span class="per">/day onward</span></div>
+              <a href="#" data-nav="inventory">View specs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-media">
+            <div class="tag-row"><span class="tag popular">Event favourite</span></div>
+            <svg class="glyph" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/><circle cx="9" cy="9" r="1.4" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="product-body">
+            <h4>Bulk Event &amp; Office Setups</h4>
+            <div class="specs">Pre-configured bundles for offices, exhibitions &amp; training rooms</div>
+            <div class="price-row">
+              <div class="price">Custom<span class="per"> quote</span></div>
+              <a href="#" data-nav="contact">Get pricing →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px;">
+        <a href="#" data-nav="inventory" class="btn btn-dark">See Full Inventory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="flow-wrap section-pad" id="how-anchor">
+    <div class="wrap">
+      <div class="sec-head on-dark">
+        <div class="eyebrow">PROCESS</div>
+        <h2>From enquiry to power-on in four steps.</h2>
+        <p>No paperwork maze, no long-term contracts unless you want one. Just tell us what you need.</p>
+      </div>
+      <div class="flow-grid">
+        <div class="flow-step">
+          <div class="flow-num"><span class="ln"></span>01</div>
+          <h4>Tell us the spec</h4>
+          <p>Call, WhatsApp, or fill the enquiry form with device count, configuration and duration.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num"><span class="ln"></span>02</div>
+          <h4>Get a quote in hours</h4>
+          <p>We confirm stock, pricing and delivery window — usually within the same business day.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num"><span class="ln"></span>03</div>
+          <h4>We deliver &amp; set up</h4>
+          <p>Devices arrive configured, sanitised and tested — ready to switch on and work.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num"><span class="ln"></span>04</div>
+          <h4>Extend, swap or return</h4>
+          <p>Need it longer? Extend in a call. Done? We pick up — no penalties, no fuss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">WHY BRITS</div>
+        <h2>Built for teams that can't afford downtime.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h4>Rapid Deployment</h4>
+          <p>Same-day or next-day delivery across Gurgaon and NCR, even for bulk office orders.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Sanitised &amp; Tested</h4>
+          <p>Every device is wiped, stress-tested and re-imaged between rentals — no surprises.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h4>On-Site Support</h4>
+          <p>Technical issue mid-rental? Our team replaces or repairs on-site, fast.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
+          <h4>Flexible Terms</h4>
+          <p>Rent by the day, week, month or quarter — scale your fleet up or down anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-pad" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">CLIENTS</div>
+        <h2>Trusted across Gurgaon's startups &amp; studios.</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>We needed 22 laptops for a 3-day training bootcamp with two days' notice. Brits delivered, configured and even helped with the projector setup.</p>
+          <div class="who"><div class="avatar">RK</div><div><div class="nm">Rohit Kapoor</div><div class="co">L&amp;D Lead, NCR Edtech Firm</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>Our office runs entirely on rented workstations from Brits now. No more capex headaches and their swap turnaround is genuinely under 24 hours.</p>
+          <div class="who"><div class="avatar">SM</div><div><div class="nm">Sanya Mehta</div><div class="co">Ops Manager, Design Studio</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>Rented a high-spec desktop for a month during a freelance project. Pricing was transparent, pickup was on time, zero hassle.</p>
+          <div class="who"><div class="avatar">AV</div><div><div class="nm">Aditya Verma</div><div class="co">Independent Video Editor</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h3>Tell us your configuration. We'll have it ready before you finish your coffee.</h3>
+          <div class="sub">Free consultation · Same-day quotes · No long-term lock-in</div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2;">
+          <a href="tel:+918800379050" class="btn btn-primary">Call 88003 79050</a>
+          <a href="#" data-nav="contact" class="btn btn-ghost">Enquiry Form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ INVENTORY PAGE ============ -->
+<section id="page-inventory" class="page-section">
+  <section class="hero" style="padding:150px 0 64px;">
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div class="eyebrow">FULL CATALOGUE</div>
+      <h1 style="font-size:clamp(34px,4.5vw,52px);margin:18px 0 14px;">Every category, every configuration.</h1>
+      <p class="lede">Filter by category to find exactly what your team or event needs. All prices are starting rates — bulk &amp; long-term rentals get custom pricing.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:64px;">
+    <div class="wrap">
+      <div class="cat-bar" id="catBar">
+        <button class="cat-pill is-active" data-filter="all">All Categories</button>
+        <button class="cat-pill" data-filter="laptop">Laptops</button>
+        <button class="cat-pill" data-filter="desktop">Desktops &amp; Workstations</button>
+        <button class="cat-pill" data-filter="monitor">Monitors</button>
+        <button class="cat-pill" data-filter="peripheral">Keyboards, Mice &amp; Peripherals</button>
+        <button class="cat-pill" data-filter="printer">Printers &amp; Scanners</button>
+        <button class="cat-pill" data-filter="network">Networking &amp; Servers</button>
+      </div>
+
+      <div class="product-grid" id="invGrid">
+        <!-- LAPTOPS -->
+        <div class="product-card" data-cat="laptop">
+          <div class="product-media"><div class="tag-row"><span class="tag popular">Most rented</span></div>
+            <svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 8h6M9 11h4"/></svg></div>
+          <div class="product-body"><h4>Dell Latitude 5440</h4>
+            <div class="specs">Intel i5 13th Gen · 16GB RAM · 512GB SSD · 14" FHD</div>
+            <div class="price-row"><div class="price">₹1,499<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="laptop">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 8h6M9 11h4"/></svg></div>
+          <div class="product-body"><h4>HP EliteBook 840 G9</h4>
+            <div class="specs">Intel i7 12th Gen · 16GB RAM · 512GB SSD · 14" FHD</div>
+            <div class="price-row"><div class="price">₹1,899<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="laptop">
+          <div class="product-media"><div class="tag-row"><span class="tag avail">In stock</span></div><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 8h6M9 11h4"/></svg></div>
+          <div class="product-body"><h4>Lenovo ThinkPad E14</h4>
+            <div class="specs">Intel i5 11th Gen · 8GB RAM · 256GB SSD · 14" FHD</div>
+            <div class="price-row"><div class="price">₹999<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="laptop">
+          <div class="product-media"><div class="tag-row"><span class="tag new">New stock</span></div><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 8h6M9 11h4"/></svg></div>
+          <div class="product-body"><h4>MacBook Air M2</h4>
+            <div class="specs">Apple M2 · 8GB RAM · 256GB SSD · 13.6" Retina</div>
+            <div class="price-row"><div class="price">₹2,499<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+
+        <!-- DESKTOPS -->
+        <div class="product-card" data-cat="desktop">
+          <div class="product-media"><div class="tag-row"><span class="tag avail">In stock</span></div><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></svg></div>
+          <div class="product-body"><h4>Mini Tower — Ryzen 5</h4>
+            <div class="specs">Ryzen 5 5600G · 16GB RAM · 512GB SSD · Integrated graphics</div>
+            <div class="price-row"><div class="price">₹999<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="desktop">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></svg></div>
+          <div class="product-body"><h4>Design Workstation — i7 + RTX</h4>
+            <div class="specs">i7 12th Gen · 32GB RAM · 1TB SSD · RTX 3060 6GB</div>
+            <div class="price-row"><div class="price">₹2,799<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="desktop">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></svg></div>
+          <div class="product-body"><h4>Standard Office PC — i5</h4>
+            <div class="specs">i5 10th Gen · 8GB RAM · 256GB SSD</div>
+            <div class="price-row"><div class="price">₹849<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+
+        <!-- MONITORS -->
+        <div class="product-card" data-cat="monitor">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M3 19h18"/></svg></div>
+          <div class="product-body"><h4>21.5" Full HD Monitor</h4>
+            <div class="specs">1920×1080 · IPS panel · VGA/HDMI</div>
+            <div class="price-row"><div class="price">₹149<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="monitor">
+          <div class="product-media"><div class="tag-row"><span class="tag popular">Popular</span></div><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M3 19h18"/></svg></div>
+          <div class="product-body"><h4>27" QHD Monitor</h4>
+            <div class="specs">2560×1440 · IPS panel · HDMI/DP</div>
+            <div class="price-row"><div class="price">₹299<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+
+        <!-- PERIPHERALS -->
+        <div class="product-card" data-cat="peripheral">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="6" width="16" height="10" rx="1.5"/><circle cx="20" cy="11" r="2"/></svg></div>
+          <div class="product-body"><h4>Wired Keyboard + Mouse Combo</h4>
+            <div class="specs">USB plug-and-play · Spill-resistant keys</div>
+            <div class="price-row"><div class="price">₹39<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="peripheral">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="6" width="16" height="10" rx="1.5"/><circle cx="20" cy="11" r="2"/></svg></div>
+          <div class="product-body"><h4>Wireless Keyboard + Mouse</h4>
+            <div class="specs">2.4GHz wireless · Ergonomic profile</div>
+            <div class="price-row"><div class="price">₹79<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="peripheral">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l5-5 4 4 9-9"/></svg></div>
+          <div class="product-body"><h4>USB-C Docking Station</h4>
+            <div class="specs">Dual HDMI, LAN, multi-USB hub</div>
+            <div class="price-row"><div class="price">₹99<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="peripheral">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
+          <div class="product-body"><h4>Webcam &amp; Headset Bundle</h4>
+            <div class="specs">1080p webcam · Noise-cancelling headset</div>
+            <div class="price-row"><div class="price">₹59<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+
+        <!-- PRINTERS -->
+        <div class="product-card" data-cat="printer">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9V4h12v5M6 18h12M6 14h12v8H6z"/></svg></div>
+          <div class="product-body"><h4>Laser Printer — Mono</h4>
+            <div class="specs">25 ppm · Network-ready · Toner included</div>
+            <div class="price-row"><div class="price">₹399<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="printer">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9V4h12v5M6 18h12M6 14h12v8H6z"/></svg></div>
+          <div class="product-body"><h4>All-in-One MFD</h4>
+            <div class="specs">Print · Scan · Copy · Wi-Fi enabled</div>
+            <div class="price-row"><div class="price">₹599<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+
+        <!-- NETWORK -->
+        <div class="product-card" data-cat="network">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="9" width="18" height="6" rx="1"/><circle cx="7" cy="12" r="0.8" fill="currentColor" stroke="none"/><circle cx="10" cy="12" r="0.8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="product-body"><h4>Rack Server — Entry Level</h4>
+            <div class="specs">Xeon E-series · 32GB RAM · RAID storage</div>
+            <div class="price-row"><div class="price">₹2,499<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="network">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2"/><path d="M4 12a8 8 0 0116 0M1 12a11 11 0 0122 0"/></svg></div>
+          <div class="product-body"><h4>Enterprise Wi-Fi Router</h4>
+            <div class="specs">Dual-band · Up to 60 device capacity</div>
+            <div class="price-row"><div class="price">₹199<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+        <div class="product-card" data-cat="network">
+          <div class="product-media"><svg class="glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg></div>
+          <div class="product-body"><h4>24-Port Network Switch</h4>
+            <div class="specs">Gigabit managed switch</div>
+            <div class="price-row"><div class="price">₹149<span class="per">/day</span></div><a href="#" data-nav="contact">Enquire →</a></div></div>
+        </div>
+      </div>
+
+      <div class="cta-band" style="margin-top:64px;">
+        <div>
+          <h3>Don't see what you need?</h3>
+          <div class="sub">We source custom configurations on request — tell us your spec sheet.</div>
+        </div>
+        <a href="#" data-nav="contact" class="btn btn-primary">Request Custom Quote</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ HOW IT WORKS (standalone page anchor reuses home section via JS scroll) ============ -->
+<section id="page-how" class="page-section">
+  <section class="hero" style="padding:150px 0 80px;">
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div class="eyebrow">PROCESS</div>
+      <h1 style="font-size:clamp(34px,4.5vw,52px);margin:18px 0 14px;">How renting with Brits works.</h1>
+      <p class="lede">A straightforward process designed to get hardware into your hands fast — whether it's one laptop or a hundred.</p>
+    </div>
+  </section>
+
+  <section class="flow-wrap section-pad">
+    <div class="wrap">
+      <div class="flow-grid">
+        <div class="flow-step"><div class="flow-num"><span class="ln"></span>01</div><h4>Tell us the spec</h4><p>Share device type, configuration, quantity and rental duration via call, WhatsApp or our form.</p></div>
+        <div class="flow-step"><div class="flow-num"><span class="ln"></span>02</div><h4>Get a quote in hours</h4><p>We check live stock and send pricing with a confirmed delivery window — usually same-day.</p></div>
+        <div class="flow-step"><div class="flow-num"><span class="ln"></span>03</div><h4>We deliver &amp; set up</h4><p>Devices arrive sanitised, tested and pre-configured to your OS and software requirements.</p></div>
+        <div class="flow-step"><div class="flow-num"><span class="ln"></span>04</div><h4>Extend, swap or return</h4><p>Need it longer, or a different config mid-rental? One call and we handle it — pickup is free.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">TERMS, MADE SIMPLE</div>
+        <h2>No fine print surprises.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+        <div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>Daily, weekly, monthly and quarterly rental plans — pick what suits your timeline.</span></div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>Security deposit is fully refundable on return, adjusted at pickup.</span></div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>Free delivery &amp; pickup within Gurgaon city limits.</span></div>
+        </div>
+        <div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>Free replacement within hours for any hardware fault during rental.</span></div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>GST invoicing available for businesses on every rental.</span></div>
+          <div class="bullet-check"><span class="bc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><span>Extend your rental anytime with a single WhatsApp message.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ FOUNDER PAGE ============ -->
+<section id="page-founder" class="page-section">
+  <section class="hero" style="padding:150px 0 70px;">
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div class="eyebrow">THE PERSON BEHIND BRITS</div>
+      <h1 style="font-size:clamp(34px,4.5vw,52px);margin:18px 0 14px;">Meet the Founder</h1>
+      <p class="lede">Brits Solutions was built on a simple frustration: buying hardware for short-term needs makes no sense. Here's who's behind fixing that.</p>
+    </div>
+  </section>
+
+  <section class="founder-section section-pad">
+    <div class="wrap">
+      <div class="founder-grid">
+        <div class="founder-photo-frame">
+          <!--
+            ============================================================
+            OWNER PHOTO — replace the placeholder below.
+            Save the founder's PNG photo as: assets/founder.png
+            Recommended size: at least 800×1000px (portrait, 4:5 ratio)
+            Once the file exists at that path, this <img> tag will
+            automatically display it instead of the placeholder block.
+            ============================================================
+          -->
+          <img src="assets/roop singh photo.png" alt="Founder of Brits Solutions"
+               onerror="this.style.display='none'; document.getElementById('founderPlaceholder').style.display='flex';">
+          <div id="founderPlaceholder" class="placeholder" style="display:flex;flex-direction:column;align-items:center;position:absolute;inset:0;justify-content:center;">
+            
+           </div>
+          <div class="founder-tagband">
+            <div class="name">Roop Singh Pal</div>
+            <div class="role">Founder &amp; Director, Brits Solutions</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="founder-quote">"Reliable Devices. Flexible Rentals. Trusted Service."</div>
+          <div class="founder-bio">
+            <p>Brits Solutions began with a straightforward observation: most businesses in Gurgaon needed reliable computing hardware for finite windows of time — a project, a hiring surge, an event, a training batch — but were forced into buying equipment that sat idle the moment the need passed.</p>
+            <p>What started as a small fleet of laptops loaned out to a handful of local startups has grown into a full-service IT rental operation covering laptops, desktops, monitors, peripherals, networking gear and complete office setups — all backed by same-day delivery and on-site support across the NCR region.</p>
+            <p>The philosophy hasn't changed: keep the hardware honest, the pricing transparent, and the turnaround fast enough that "we need it tomorrow" is never a problem.</p>
+          </div>
+          <div class="founder-stats">
+            <div><div class="fs-num">9+</div><div class="fs-lbl">Years in IT rentals</div></div>
+            <div><div class="fs-num">300+</div><div class="fs-lbl">Businesses served</div></div>
+            <div><div class="fs-num">650+</div><div class="fs-lbl">Devices in fleet</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h3>Have a question for the team directly?</h3>
+          <div class="sub">We reply to every enquiry personally — no call centres.</div>
+        </div>
+        <a href="#" data-nav="contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ ABOUT PAGE ============ -->
+<section id="page-about" class="page-section">
+  <section class="hero" style="padding:150px 0 70px;">
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div class="eyebrow">ABOUT US</div>
+      <h1 style="font-size:clamp(34px,4.5vw,52px);margin:18px 0 14px;">Your Technology Partner.</h1>
+      <p class="lede">Brits Solutions is a Gurgaon-based IT hardware rental company helping businesses, studios, institutions and individuals access laptops, desktops and accessories without the burden of ownership.</p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;">
+      <div>
+        <div class="eyebrow">OUR MISSION</div>
+        <h2 style="margin:16px 0 16px;font-size:28px;">Make hardware flexible again.</h2>
+        <p style="color:var(--slate-500);line-height:1.75;font-size:15.5px;">We believe computing equipment should adapt to your timeline — not the other way around. Whether it's a two-day event or a two-year office rollout, our fleet of laptops, desktops and accessories scales with you, fully supported from delivery to pickup.</p>
+      </div>
+      <div>
+        <div class="eyebrow">WHAT WE COVER</div>
+        <h2 style="margin:16px 0 16px;font-size:28px;">Beyond laptops.</h2>
+        <p style="color:var(--slate-500);line-height:1.75;font-size:15.5px;">Desktops, workstations, monitors, keyboards, mice, docking stations, printers, scanners, networking switches and servers — Brits Solutions rents the entire stack a modern office or event needs, not just the laptop on top of the desk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:0;">
+    <div class="wrap">
+      <div class="why-grid">
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 21V11l6 3v7"/></svg></div>
+          <h4>Corporate Clients</h4><p>Office rollouts, remote-team kits, and seat-based scaling for growing teams.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M16 11l2 2 4-4"/></svg></div>
+          <h4>Events &amp; Training</h4><p>Bulk laptop and accessory bundles for workshops, bootcamps and exhibitions.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h4>Startups &amp; Studios</h4><p>Avoid upfront capex — equip new hires and project teams on flexible terms.</p>
+        </div>
+        <div class="why-cell">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h4>Individuals</h4><p>Short-term needs — exams, freelance projects, travel — covered without a purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ CONTACT PAGE ============ -->
+<section id="page-contact" class="page-section">
+  <section class="hero" style="padding:150px 0 70px;">
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div class="eyebrow">GET IN TOUCH</div>
+      <h1 style="font-size:clamp(34px,4.5vw,52px);margin:18px 0 14px;">Let's get your hardware moving.</h1>
+      <p class="lede">Send us your requirement and we'll respond with a quote, usually within a few hours during business time.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:0;">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="info-row">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="lbl">Address</div><div class="val">Brits Solutions<br>205, 2nd Floor, Aapka Bazar,<br>Gurudwara Road, Gurgaon,<br>Haryana – 122001</div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="lbl">Phone / WhatsApp</div><div class="val">+91 88003 79050</div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+          <div><div class="lbl">Email</div><div class="val">enquiry@britsolutions.in</div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><div class="lbl">Business Hours</div><div class="val">Mon – Sat, 10:00 AM – 7:30 PM</div></div>
+        </div>
+
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Aapka+Bazar+Gurudwara+Road+Gurgaon+122001&output=embed" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3 style="font-size:20px;margin-bottom:6px;">Send an enquiry</h3>
+        <p style="font-size:13.5px;color:var(--slate-500);margin-bottom:22px;">Fields marked * are required.</p>
+        <form id="enquiryForm" onsubmit="return handleEnquirySubmit(event)">
+          <div class="field-row">
+            <div class="field"><label>Full Name *</label><input type="text" required placeholder="Your name"></div>
+            <div class="field"><label>Phone Number *</label><input type="tel" required placeholder="10-digit mobile"></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+          <div class="field-row">
+            <div class="field"><label>Category *</label>
+              <select required>
+                <option value="">Select category</option>
+                <option>Laptops</option>
+                <option>Desktops / Workstations</option>
+                <option>Monitors</option>
+                <option>Keyboards, Mice &amp; Peripherals</option>
+                <option>Printers &amp; Scanners</option>
+                <option>Networking &amp; Servers</option>
+                <option>Bulk Office / Event Setup</option>
+              </select>
+            </div>
+            <div class="field"><label>Duration</label>
+              <select>
+                <option>1–7 days</option>
+                <option>1 month</option>
+                <option>3+ months</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label>Tell us more</label><textarea rows="4" placeholder="Quantity, configuration, delivery date, location..."></textarea></div>
+          <button type="submit" class="submit-btn">Send Enquiry</button>
+          <div class="form-success" id="formSuccess">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Thanks! We'll reach out within a few hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ FOOTER (shared) ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-mark" style="margin-bottom:18px;">
+          <img class="logo-img" src="assets/logo.png" alt="Brits Solutions logo">
+        </div>
+        <p style="font-size:14px;line-height:1.7;color:var(--slate-300);max-width:280px;">Your Technology Partner — renting laptops, desktops and IT hardware to businesses and individuals across Gurgaon &amp; NCR.</p>
+        <div class="social-row" style="margin-top:22px;">
+          <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0012.05 4a8.94 8.94 0 00-7.74 13.4L3 21l3.7-1.27a8.93 8.93 0 005.35 1.8 8.94 8.94 0 008.93-8.94 8.86 8.86 0 00-3.38-6.27zM12.05 19.9a7.4 7.4 0 01-3.78-1.04l-.27-.16-2.8.95.95-2.74-.18-.28a7.43 7.43 0 1113.93-3.78 7.42 7.42 0 01-7.85 7.05z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 6.5a2 2 0 11-.01-4.01 2 2 0 01.01 4.01zM5 8.5h4v12H5v-12zM10.5 8.5h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.32h-4v-5.6c0-1.34-.02-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95v5.7h-4v-12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#" data-nav="home">Home</a></li>
+          <li><a href="#" data-nav="inventory">Inventory</a></li>
+          <li><a href="#" data-nav="how">How It Works</a></li>
+          <li><a href="#" data-nav="founder">Meet the Founder</a></li>
+          <li><a href="#" data-nav="about">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#" data-nav="inventory">Laptops</a></li>
+          <li><a href="#" data-nav="inventory">Desktops &amp; PCs</a></li>
+          <li><a href="#" data-nav="inventory">Monitors</a></li>
+          <li><a href="#" data-nav="inventory">Keyboards &amp; Mice</a></li>
+          <li><a href="#" data-nav="inventory">Printers &amp; Networking</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <div class="addr">
+          205, 2nd Floor, Aapka Bazar,<br>
+          Gurudwara Road, Gurgaon,<br>
+          Haryana – 122001<br><br>
+          +91 88003 79050<br>
+          enquiry@britsolutions.in
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Brits Solutions. All rights reserved.</div>
+      <div>Your Technology Partner</div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/918800379050" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0012.05 4a8.94 8.94 0 00-7.74 13.4L3 21l3.7-1.27a8.93 8.93 0 005.35 1.8 8.94 8.94 0 008.93-8.94 8.86 8.86 0 00-3.38-6.27zM12.05 19.9a7.4 7.4 0 01-3.78-1.04l-.27-.16-2.8.95.95-2.74-.18-.28a7.43 7.43 0 1113.93-3.78 7.42 7.42 0 01-7.85 7.05z"/></svg>
+</a>
+
+<script>
+/* ---------- SPA-style nav ---------- */
+const pages = ['home','inventory','how','founder','about','contact'];
+function showPage(name){
+  pages.forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('active', p===name);
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.nav===name);
+  });
+  window.scrollTo({top:0,behavior:'instant'});
+  document.getElementById('mmenu').classList.remove('open');
+  history.replaceState(null,'','#'+name);
+}
+document.querySelectorAll('[data-nav]').forEach(el=>{
+  el.addEventListener('click', e=>{
+    e.preventDefault();
+    showPage(el.dataset.nav);
+  });
+});
+// init from hash
+const initial = location.hash.replace('#','');
+if(pages.includes(initial)) showPage(initial);
+
+/* ---------- inventory filter ---------- */
+document.querySelectorAll('#catBar .cat-pill').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#catBar .cat-pill').forEach(b=>b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('#invGrid .product-card').forEach(card=>{
+      card.style.display = (filter==='all' || card.dataset.cat===filter) ? 'flex' : 'none';
+    });
+  });
+});
+
+/* ---------- contact form ---------- */
+function handleEnquirySubmit(e){
+  e.preventDefault();
+  document.getElementById('formSuccess').classList.add('show');
+  e.target.reset();
+  return false;
+}
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
+},{threshold:0.12});
+document.querySelectorAll('.product-card,.why-cell,.test-card,.flow-step').forEach(el=>{
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+
+</body>
+</html>
